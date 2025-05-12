@@ -1,16 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Back Soon</title>
-    <link href="styles.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <img src="assets/logo.png" class="logo">
-    </dv>
-<div class="content">
-    <h3>Website is under consturtion</h3>
-    <h1>We're <span>Launching</span> Soon</h1>
+        <div class="content">
+            <div class="logo-container">
+                <img src="assets/logo.png" alt="Logo" class="logo" id="logo">
+            </div>
+            <h1>We'll Be Back Soon!</h1>
+            <p>Our website is currently under maintenance. Please check back later.</p>
+            
+            <div class="countdown-container">
+                <div class="countdown-display">
+                    <div class="time-block">
+                        <span id="days">00</span>
+                        <span class="label">Days</span>
+                    </div>
+                    <div class="time-block">
+                        <span id="hours">00</span>
+                        <span class="label">Hours</span>
+                    </div>
+                    <div class="time-block">
+                        <span id="minutes">00</span>
+                        <span class="label">Minutes</span>
+                    </div>
+                    <div class="time-block">
+                        <span id="seconds">00</span>
+                        <span class="label">Seconds</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <div class="train-container">
+        <div class="train">
+            <div class="train-body">
+                <div class="train-front"></div>
+                <div class="train-window"></div>
+                <div class="train-window"></div>
+                <div class="train-window"></div>
+            </div>
+            <div class="train-wheels">
+                <div class="wheel"></div>
+                <div class="wheel"></div>
+                <div class="wheel"></div>
+                <div class="wheel"></div>
+            </div>
+        </div>
+        <div class="tracks"></div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
