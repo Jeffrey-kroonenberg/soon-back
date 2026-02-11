@@ -1,61 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Back Soon</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Binnenkort Beschikbaar | Jouw Project</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="content">
-            <div class="logo-container">
-                <img src="assets/logo.png" alt="Logo" class="logo" id="logo">
-            </div>
-            <h1>We'll Be Back Soon!</h1>
-            <p>Our website is currently under maintenance. Please check back later.</p>
-            
-            <div class="countdown-container">
-                <div class="countdown-display">
-                    <div class="time-block">
-                        <span id="days">00</span>
-                        <span class="label">Days</span>
-                    </div>
-                    <div class="time-block">
-                        <span id="hours">00</span>
-                        <span class="label">Hours</span>
-                    </div>
-                    <div class="time-block">
-                        <span id="minutes">00</span>
-                        <span class="label">Minutes</span>
-                    </div>
-                    <div class="time-block">
-                        <span id="seconds">00</span>
-                        <span class="label">Seconds</span>
-                    </div>
+
+<div class="container">
+    <div class="row justify-content-center text-center">
+        <div class="col-xl-7 col-lg-9 glass-container">
+            <h2 class="status-badge mb-3">Lancering 2026</h2>
+            <h1 class="display-3 fw-bold mb-4">Iets moois is onderweg.</h1>
+            <p class="lead opacity-75 mb-5">
+                We leggen momenteel de laatste hand aan onze nieuwe website. Schrijf je in of volg ons om op de hoogte te blijven!
+            </p>
+
+            <div class="timer-wrapper">
+                <div class="timer-box">
+                    <span class="num" id="days">00</span>
+                    <span class="label">Dagen</span>
+                </div>
+                <div class="timer-box">
+                    <span class="num" id="hours">00</span>
+                    <span class="label">Uren</span>
+                </div>
+                <div class="timer-box">
+                    <span class="num" id="mins">00</span>
+                    <span class="label">Min</span>
+                </div>
+                <div class="timer-box">
+                    <span class="num" id="secs">00</span>
+                    <span class="label">Sec</span>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <div class="train-container">
-        <div class="train">
-            <div class="train-body">
-                <div class="train-front"></div>
-                <div class="train-window"></div>
-                <div class="train-window"></div>
-                <div class="train-window"></div>
+            <div class="social-icons mb-5">
+                <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+                <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
             </div>
-            <div class="train-wheels">
-                <div class="wheel"></div>
-                <div class="wheel"></div>
-                <div class="wheel"></div>
-                <div class="wheel"></div>
+
+            <div class="footer-note">
+                &copy; 2026 Jouw Bedrijfsnaam. Alle rechten voorbehouden.
             </div>
         </div>
-        <div class="tracks"></div>
     </div>
+</div>
 
-    <script src="script.js"></script>
+<script>
+    // Stel de doeldatum in (bijv. 31 december 2026)
+    const launchDate = new Date("Dec 31, 2026 00:00:00").getTime();
+
+    function updateTimer() {
+        const now = new Date().getTime();
+        const gap = launchDate - now;
+
+        const second = 1000;
+        const minute = second * 60;
+        const hour = minute * 60;
+        const day = hour * 24;
+
+        const d = Math.floor(gap / day);
+        const h = Math.floor((gap % day) / hour);
+        const m = Math.floor((gap % hour) / minute);
+        const s = Math.floor((gap % minute) / second);
+
+        document.getElementById('days').innerText = d.toString().padStart(2, '0');
+        document.getElementById('hours').innerText = h.toString().padStart(2, '0');
+        document.getElementById('mins').innerText = m.toString().padStart(2, '0');
+        document.getElementById('secs').innerText = s.toString().padStart(2, '0');
+
+        if (gap < 0) {
+            clearInterval(timerInterval);
+            document.querySelector('.timer-wrapper').innerHTML = "<h3 class='text-info'>We zijn nu live!</h3>";
+        }
+    }
+
+    const timerInterval = setInterval(updateTimer, 1000);
+    updateTimer();
+</script>
+
 </body>
 </html>

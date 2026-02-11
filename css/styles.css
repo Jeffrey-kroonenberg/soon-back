@@ -1,0 +1,104 @@
+/* css/styles.css */
+
+:root {
+    --accent: #00d2ff;
+    --bg-main: #0f172a;
+    --text-muted: #94a3b8;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: radial-gradient(circle at 10% 20%, #1e293b 0%, #0f172a 100%);
+    color: #ffffff;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.glass-container {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 40px;
+    padding: 60px 40px;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+}
+
+.status-badge {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--accent);
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid var(--accent);
+    border-radius: 50px;
+}
+
+/* Timer Styling */
+.timer-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+.timer-box {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 20px;
+    min-width: 100px;
+}
+
+.num {
+    font-size: 3.2rem;
+    font-weight: 800;
+    line-height: 1;
+    display: block;
+    background: linear-gradient(180deg, #fff 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 10px;
+    display: block;
+}
+
+/* Socials */
+.social-icons a {
+    color: #fff;
+    font-size: 1.5rem;
+    margin: 0 15px;
+    transition: all 0.3s ease;
+    opacity: 0.4;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    opacity: 1;
+    color: var(--accent);
+    transform: translateY(-5px);
+}
+
+.footer-note {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 20px;
+}
+
+/* Mobiel */
+@media (max-width: 576px) {
+    .timer-wrapper { gap: 8px; }
+    .timer-box { min-width: 75px; padding: 10px; }
+    .num { font-size: 2rem; }
+}
